@@ -15,7 +15,7 @@
                     formControlName="password"></app-text-input>
 
                 <div class="flex items-center justify-center">
-                    <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" class="bg-white text-orange-600 disabled:bg-gray-500 disabled:text-gray-700 py-2 px-4 rounded-md font-bold text-base w-full" (click)="login()">
+                    <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" class="bg-white text-orange-600 disabled:bg-gray-500 disabled:text-gray-700 disabled:cursor-not-allowed py-2 px-4 rounded-md font-bold text-base w-full" (click)="login()">
                         INGRESAR
                     </button>
                 </div>
