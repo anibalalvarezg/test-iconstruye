@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ToggleButtonsComponent } from '../../components/toggle-buttons/toggle-buttons.component';
-import { TextInputComponent } from '../../components/text-input/text-input.component';
+import { ToggleButtonsComponent } from '@Components/toggle-buttons/toggle-buttons.component';
+import { TextInputComponent } from '@Components/text-input/text-input.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '@Services/auth.service';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { DialogComponent } from '../../components/dialog/dialog.component';
+import { DialogComponent } from '@Components/dialog/dialog.component';
 
 @Component({
   selector: 'app-login',

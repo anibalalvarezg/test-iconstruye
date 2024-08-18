@@ -1,13 +1,12 @@
 <div class="lg:flex lg:justify-center lg:items-center h-screen bg-gray-700">
-    <div class="relative lg:w-[375px] bg-cover bg-no-repeat rounded-lg shadow-lg h-full"
-        style="background-image: url('../../../assets/images/Bitmap.png');">
+    <div class="relative lg:w-[375px] rounded-lg shadow-lg h-full overflow-hidden">
         <div class="absolute inset-0"
-            style="background: linear-gradient(180deg, #FF5722 100%, #BF360C 100%); mix-blend-mode: overlay; opacity: 0.85;">
+            style="background: url('/assets/images/Bitmap.png') no-repeat center center; background-size: cover; background-blend-mode: overlay; background: linear-gradient(180deg, rgba(255, 87, 34, 1), rgba(191, 54, 12, 1)), url('/assets/images/Bitmap.png');">
         </div>
         <div class="relative p-8 h-full flex flex-col justify-between">
             <div class="mt-40 lg:mt-0">
                 <div class="text-center mb-6">
-                    <img src="../../../assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
+                    <img src="/assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
                     <h2 class="mt-10 text-white !text-[22px] !font-light">Inicie sesión</h2>
                 </div>
                 <app-toggle-buttons (onStatusChange)="loginWithUser.set($event)"></app-toggle-buttons>
@@ -20,20 +19,20 @@
             </div>
             <div class="mt-auto">
                 <div class="flex items-center justify-center">
-                    <!-- <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" -->
                     <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()"
                         class="text-orange-600 bg-white disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed py-2 px-4 rounded-md font-bold text-base w-full"
                         (click)="login()">
                         INGRESAR
                     </button>
-
                 </div>
                 <div class="text-center mt-6">
-                    <a class="text-white text-sm cursor-pointer" (click)="openDialog('Funcionalidad no implementada')">¿Olvidaste tu contraseña?</a>
+                    <a class="text-white text-sm cursor-pointer"
+                        (click)="openDialog('Funcionalidad no implementada')">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="text-center mt-12">
-                    <a class="text-white text-sm cursor-pointer" (click)="openDialog('Funcionalidad no implementada')">¿No eres cliente? <span class="underline">Contáctanos
-                            aquí</span></a>
+                    <a class="text-white text-sm cursor-pointer"
+                        (click)="openDialog('Funcionalidad no implementada')">¿No eres cliente? <span
+                            class="underline">Contáctanos aquí</span></a>
                 </div>
             </div>
         </div>
