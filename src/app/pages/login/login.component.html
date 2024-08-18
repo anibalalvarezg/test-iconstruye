@@ -1,31 +1,39 @@
-<div class="flex justify-center items-center min-h-screen bg-gray-800">
-    <div class="relative w-[375px] bg-cover bg-no-repeat rounded-lg shadow-lg"
+<div class="lg:flex lg:justify-center lg:items-center h-screen bg-gray-700">
+    <div class="relative lg:w-[375px] bg-cover bg-no-repeat rounded-lg shadow-lg h-full"
         style="background-image: url('../../../assets/images/Bitmap.png');">
-        <div class="absolute inset-0 bg-[#FF5722] mix-blend-overlay opacity-50"></div>
-        <div class="relative p-8">
-            <div class="text-center mb-6">
-                <img src="../../../assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
-                <h2 class="mt-2 text-white text-[22px] font-light">Inicie sesión</h2>
+        <div class="absolute inset-0"
+            style="background: linear-gradient(180deg, #FF5722 100%, #BF360C 100%); mix-blend-mode: overlay; opacity: 0.85;">
+        </div>
+        <div class="relative p-8 h-full flex flex-col justify-between">
+            <div class="mt-40 lg:mt-0">
+                <div class="text-center mb-6">
+                    <img src="../../../assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
+                    <h2 class="mt-10 text-white text-[22px] font-light">Inicie sesión</h2>
+                </div>
+                <app-toggle-buttons (onStatusChange)="loginWithUser.set($event)"></app-toggle-buttons>
+                <form class="mt-10" [formGroup]="loginForm">
+                    <app-text-input icon="fa-envelope" type="email" placeholder="Correo Electrónico"
+                        formControlName="email"></app-text-input>
+                    <app-text-input icon="fa-key" type="password" placeholder="Contraseña"
+                        formControlName="password"></app-text-input>
+                </form>
             </div>
-            <app-toggle-buttons (onStatusChange)="loginWithUser.set($event)"></app-toggle-buttons>
-            <form [formGroup]="loginForm">
-                <app-text-input icon="fa-envelope" type="email" placeholder="Correo Electrónico"
-                    formControlName="email"></app-text-input>
-                <app-text-input icon="fa-key" type="password" placeholder="Contraseña"
-                    formControlName="password"></app-text-input>
-
+            <div class="mt-auto">
                 <div class="flex items-center justify-center">
-                    <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" class="bg-white text-orange-600 disabled:bg-gray-500 disabled:text-gray-700 disabled:cursor-not-allowed py-2 px-4 rounded-md font-bold text-base w-full" (click)="login()">
+                    <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()"
+                        class="text-orange-600 bg-white disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed py-2 px-4 rounded-md font-bold text-base w-full"
+                        (click)="login()">
                         INGRESAR
                     </button>
+
                 </div>
-            </form>
-            <div class="text-center mt-4">
-                <a href="#" class="text-white text-sm underline">¿Olvidaste tu contraseña?</a>
-            </div>
-            <div class="text-center mt-2">
-                <a href="#" class="text-white text-sm underline">¿No eres cliente? <span
-                        class="text-orange-600">Contáctanos aquí</span></a>
+                <div class="text-center mt-6">
+                    <a href="#" class="text-white text-sm">¿Olvidaste tu contraseña?</a>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="#" class="text-white text-sm">¿No eres cliente? <span class="underline">Contáctanos
+                            aquí</span></a>
+                </div>
             </div>
         </div>
     </div>

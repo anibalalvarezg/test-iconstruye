@@ -13,7 +13,7 @@ export class ToggleButtonsComponent {
   onStatusChange = output<boolean>();
 
   changeLoginType(value: boolean) {
-    this.loginWithUser.set(value);
-    this.onStatusChange.emit(this.loginWithUser());
+    // this.loginWithUser.set(value);
+    // this.onStatusChange.emit(this.loginWithUser());
   }
 }
