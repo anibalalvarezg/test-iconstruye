@@ -1,0 +1,32 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-800">
+    <div class="relative w-[375px] bg-cover bg-no-repeat rounded-lg shadow-lg"
+        style="background-image: url('../../../assets/images/Bitmap.png');">
+        <div class="absolute inset-0 bg-[#FF5722] mix-blend-overlay opacity-50"></div>
+        <div class="relative p-8">
+            <div class="text-center mb-6">
+                <img src="../../../assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
+                <h2 class="mt-2 text-white text-[22px] font-light">Inicie sesión</h2>
+            </div>
+            <app-toggle-buttons (onStatusChange)="loginWithUser.set($event)"></app-toggle-buttons>
+            <form [formGroup]="loginForm">
+                <app-text-input icon="fa-envelope" type="email" placeholder="Correo Electrónico"
+                    formControlName="email"></app-text-input>
+                <app-text-input icon="fa-key" type="password" placeholder="Contraseña"
+                    formControlName="password"></app-text-input>
+
+                <div class="flex items-center justify-center">
+                    <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" class="bg-white text-orange-600 disabled:bg-gray-500 disabled:text-gray-700 py-2 px-4 rounded-md font-bold text-base w-full" (click)="login()">
+                        INGRESAR
+                    </button>
+                </div>
+            </form>
+            <div class="text-center mt-4">
+                <a href="#" class="text-white text-sm underline">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="text-center mt-2">
+                <a href="#" class="text-white text-sm underline">¿No eres cliente? <span
+                        class="text-orange-600">Contáctanos aquí</span></a>
+            </div>
+        </div>
+    </div>
+</div>

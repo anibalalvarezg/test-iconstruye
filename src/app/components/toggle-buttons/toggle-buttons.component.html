@@ -1,0 +1,8 @@
+<div class="flex justify-around mb-4 bg-transparent border-white border rounded-full h-[30px]">
+    <button class="text-sm rounded-l-full bg-transparent w-1/2"
+        [ngClass]="{'bg-white text-orange-600 rounded-r-full font-bold': loginWithUser(), 'bg-transparent text-white': !loginWithUser()}"
+        (click)="changeLoginType(true)">Con tu usuario</button>
+    <button class="text-sm text-orange-600 bg-gray-200 rounded-full w-1/2"
+        [ngClass]="{'bg-transparent text-white': loginWithUser(), 'bg-white text-orange-600 vrounded-l-full font-bold': !loginWithUser()}"
+        (click)="changeLoginType(false)">Con tu correo</button>
+</div>
