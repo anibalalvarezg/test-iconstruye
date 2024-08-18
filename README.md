@@ -1,12 +1,23 @@
-# TestIconstruye
+<h1 align="center">Welcome to test-iconstruye 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+## Install
 
-## Install packages
+```sh
+npm install
+```
 
-First make sure you have NodeJS installed on your computer and then run the `npm install` command.
+## Usage
 
-## Development server
+```sh
+npm run start
+```
 
-Run `npm run start` for a dev server. Navigate to `http://localhost:4201/`. The application will automatically reload if you change any of the source files.
+## Show your support
 
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
