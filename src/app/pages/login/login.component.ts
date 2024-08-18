@@ -1,22 +1,25 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ToggleButtonsComponent } from '../../components/toggle-buttons/toggle-buttons.component';
 import { TextInputComponent } from '../../components/text-input/text-input.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from '../../components/dialog/dialog.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ToggleButtonsComponent, TextInputComponent, ReactiveFormsModule],
+  imports: [CommonModule, ToggleButtonsComponent, TextInputComponent, ReactiveFormsModule, MatDialogModule],
   templateUrl: './login.component.html',
   styles: ``
 })
 export class LoginComponent implements OnInit {
   loginWithUser = signal(false);
   loginForm!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
+  authService = inject(AuthService);
+  formBuilder = inject(FormBuilder);
+  dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -25,8 +28,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login() {
+  login(): void {
     const { email, password } = this.loginForm.value;
-    this.authService.authenticate(email, password).subscribe((result) => console.log(result));
+    this.authService.authenticate(email, password).subscribe((result) => {
+      if (result) {
+        this.openDialog('Crendenciales correctas!')
+      }
+    },
+    () => {
+      this.openDialog('Crendenciales incorrectas!')
+    });
+  }
+
+  openDialog(message: string): void {
+    this.dialog.open(DialogComponent, {
+      width: '250px',
+      data: { message },
+    });
   }
 }

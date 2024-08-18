@@ -8,7 +8,7 @@
             <div class="mt-40 lg:mt-0">
                 <div class="text-center mb-6">
                     <img src="../../../assets/images/Logo-IC.png" alt="iConstruye Logo" class="mx-auto h-12">
-                    <h2 class="mt-10 text-white text-[22px] font-light">Inicie sesión</h2>
+                    <h2 class="mt-10 text-white !text-[22px] !font-light">Inicie sesión</h2>
                 </div>
                 <app-toggle-buttons (onStatusChange)="loginWithUser.set($event)"></app-toggle-buttons>
                 <form class="mt-10" [formGroup]="loginForm">
@@ -20,6 +20,7 @@
             </div>
             <div class="mt-auto">
                 <div class="flex items-center justify-center">
+                    <!-- <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()" -->
                     <button [disabled]="loginForm.status === 'INVALID' || loginWithUser()"
                         class="text-orange-600 bg-white disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed py-2 px-4 rounded-md font-bold text-base w-full"
                         (click)="login()">
@@ -28,10 +29,10 @@
 
                 </div>
                 <div class="text-center mt-6">
-                    <a href="#" class="text-white text-sm">¿Olvidaste tu contraseña?</a>
+                    <a class="text-white text-sm cursor-pointer" (click)="openDialog('Funcionalidad no implementada')">¿Olvidaste tu contraseña?</a>
                 </div>
                 <div class="text-center mt-12">
-                    <a href="#" class="text-white text-sm">¿No eres cliente? <span class="underline">Contáctanos
+                    <a class="text-white text-sm cursor-pointer" (click)="openDialog('Funcionalidad no implementada')">¿No eres cliente? <span class="underline">Contáctanos
                             aquí</span></a>
                 </div>
             </div>
